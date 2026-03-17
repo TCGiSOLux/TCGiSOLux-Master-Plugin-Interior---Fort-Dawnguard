@@ -7,8 +7,8 @@ After completing the quest "Destroying the Dawnguard", the empty Dawnguard base 
 
 This small, dynamic change is designed to enhance the commercial activity around Dayspring Canyon, and is highly compatible with other mods.
 
-*** This mod requires the latest TCGiSO Master Plugin Inerior, found here.
-*** Ok to install mid-game.
+This mod requires the latest [TCGiSO Master Plugin Inerior](https://github.com/TCGiSOLux/tcgisolux_master_plugin), found here.
+Ok to install mid-game.
 
 CONCEPT:
 
