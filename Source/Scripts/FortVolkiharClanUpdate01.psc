@@ -39,14 +39,15 @@ If DLC1VQ03Vampire.GetStageDone(5) == 1 && DLC1RV10.GetStageDone(10) == 0
   DLC1DawnguardHQ01.SetPublic(false)
 Endif
 ;IF SPOUSE ARE ALREADY VAMPIRE MAKE OUTFIT AND SET CRIME FACTION AND QUEST THE GIFT WILL BE SKIPPED
-if Alias_Spouse.GetActorReference().IsInFaction(PlayerMarriedFaction) == 1 && DLC1VQ03Vampire.GetStageDone(5) == 1 && DLC1RV06DoOnce.GetValue() == 0 && Alias_Spouse.GetActorReference().HasKeyword(Vampire) == 1
+if Alias_Spouse.GetActorReference().IsInFaction(PlayerMarriedFaction) == 1 && DLC1VQ03Vampire.GetStageDone(5) == 1 && DLC1RV06DoOnce.GetValue() == 0 && Alias_Spouse.GetActorReference().HasKeyword(Vampire) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0
    Alias_Spouse.GetActorReference().AddToFaction(DLC1VampireFaction)
    Alias_Spouse.GetActorReference().AddToFaction(DLC1VampireCrimeFaction)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
 endif
 ;CHANGE SPOUSE TO VAMPIRE OUTFIT AND SET CRIME FACTION IF QUEST THE GIFT COMPLETED
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHaafingar) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHaafingar) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionHaafingar)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -55,7 +56,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHaafingar) == 1 && D
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionReach)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -64,7 +65,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && DLC1R
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHjaalmarch) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHjaalmarch) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionHjaalmarch)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -73,7 +74,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionHjaalmarch) == 1 && 
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWhiterun) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWhiterun) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionWhiterun)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -82,7 +83,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWhiterun) == 1 && DL
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionFalkreath) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionFalkreath) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionFalkreath)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -91,7 +92,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionFalkreath) == 1 && D
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionPale) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionPale) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionPale)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -102,7 +103,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionPale) == 1 && DLC1RV
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionWinterhold)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -111,7 +112,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && 
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionEastmarch) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionEastmarch) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionEastmarch)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -120,7 +121,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionEastmarch) == 1 && D
    Alias_Spouse.GetActorReference().SetOutfit(VampireOutfit)
    Alias_Spouse.GetActorReference().SetCrimeFaction(DLC1VampireCrimeFaction)
 endif
-if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionRift) == 1 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
+if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionRift) == 1 && Alias_Spouse.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && DLC1RV06.GetStageDone(255) == 1 && DLC1RV06DoOnce.GetValue() == 1
    Alias_Spouse.GetActorReference().RemoveFromFaction(CrimeFactionRift)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Spouse.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -131,7 +132,7 @@ if Alias_Spouse.GetActorReference().IsInFaction(CrimeFactionRift) == 1 && DLC1RV
 endif
 
 ;CHECK IF CAIRINE VAMPIRE
-if Alias_Cairine.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && Alias_Cairine.GetActorReference().HasKeyword(Vampire) == 1
+if Alias_Cairine.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && Alias_Cairine.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && Alias_Cairine.GetActorReference().HasKeyword(Vampire) == 1
    Alias_Cairine.GetActorReference().RemoveFromFaction(CrimeFactionReach)
    Alias_Cairine.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Cairine.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -142,7 +143,7 @@ if Alias_Cairine.GetActorReference().IsInFaction(CrimeFactionReach) == 1 && Alia
 endif
 
 ;CHECK IF HARAN VAMPIRE
-if Alias_Haran.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && Alias_Haran.GetActorReference().HasKeyword(Vampire) == 1
+if Alias_Haran.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && Alias_Haran.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && Alias_Haran.GetActorReference().HasKeyword(Vampire) == 1
    Alias_Haran.GetActorReference().RemoveFromFaction(CrimeFactionWinterhold)
    Alias_Haran.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
    Alias_Haran.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
@@ -153,7 +154,7 @@ if Alias_Haran.GetActorReference().IsInFaction(CrimeFactionWinterhold) == 1 && A
 endif
 
 ;CHECK IF VALINDOR VAMPIRE
-if Alias_Valindor.GetActorReference().IsInFaction(CrimeFactionRift) == 1 && Alias_Valindor.GetActorReference().HasKeyword(Vampire) == 1
+if Alias_Valindor.GetActorReference().IsInFaction(CrimeFactionRift) == 1 && Alias_Valindor.GetActorReference().IsInFaction(DLC1VampireCrimeFaction) == 0 && Alias_Valindor.GetActorReference().HasKeyword(Vampire) == 1
    Alias_Valindor.GetActorReference().RemoveFromFaction(CrimeFactionRift)
    Alias_Valindor.GetActorReference().RemoveFromFaction(DLC1VampireSeductionBoostFaction)
    Alias_Valindor.GetActorReference().RemoveFromFaction(DLC1VampireFeedNoCrimeFaction)
