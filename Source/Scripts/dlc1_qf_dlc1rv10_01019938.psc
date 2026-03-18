@@ -71,6 +71,7 @@ ReferenceAlias Property Alias_Ingjard Auto
 Function Fragment_2()
 ;BEGIN CODE
 CompleteAllObjectives()
+DLC1DawnguardHQ01.SetPublic(false)
 DLC1Radiant.GiveQuestReward(ChanceForBloodPotion = 25)
 DLC1Radiant.StopQuestAndStartNewOneVampire(self)   ;THIS WILL CALL STOP() ON THIS QUEST
 ;END CODE
@@ -82,7 +83,6 @@ Function Fragment_1()
 ;BEGIN CODE
 SetObjectiveCompleted(10)
 SetObjectiveDisplayed(100)
-DLC1DawnguardHQ01.SetPublic(false)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -96,6 +96,10 @@ DLC1RV10Script kmyQuest = __temp as DLC1RV10Script
 ;BEGIN CODE
 DLC1Radiant.QuestAccepted(self)
 DLC1RV10DoOnce.SetValue(1)
+If DLC1VQ01MiscObjective.GetStageDone(200) == 1 && DLC1VQ01MiscObjective.GetStageDone(250) == 0
+  DLC1VQ01MiscObjective.setStage(250) ; ADDED IN UPDATE v1.1
+Endif
+DLC1DawnguardHQ01.SetPublic(true)
 Alias_MapMarker.GetReference().AddToMap()
 
 SetObjectiveDisplayed(10)
@@ -118,7 +122,6 @@ DLC1DawnguardGateRef3.Disable()
 Alias_Sorine.GetActorReference().SetOutfit(kmyquest.DLC1OutfitSorine)
 Alias_Gunmar.GetActorReference().SetOutfit(kmyquest.DLC1OutfitGunmar)
 Alias_Florentius.GetActorReference().SetOutfit(DLC1FlorentiusOutfit) ; Added by UDGP 1.1.3
-DLC1DawnguardHQ01.SetPublic(true)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -137,3 +140,4 @@ GlobalVariable Property DLC1RV10DoOnce  Auto
 
 Outfit Property DLC1FlorentiusOutfit  Auto  
 Cell Property DLC1DawnguardHQ01 Auto ; Added in v1.0
+Quest Property DLC1VQ01MiscObjective  Auto  ; Added in UPDATE v1.1
